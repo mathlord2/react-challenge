@@ -19,12 +19,13 @@ function App() {
   const [genre, setGenre] = useState({});
   const [status, setStatus] = useState({});
   const [rated, setRated] = useState({});
+  const [sortRating, setSortRating] = useState(false);
 
   useEffect(() => {
     if (value !== "" && searched) {
       fetchAnime(value);
     }
-  }, [genre, status, rated]);
+  }, [genre, status, rated, sortRating]);
 
   const onChange = e => {
     setValue(e.target.value);
@@ -48,6 +49,10 @@ function App() {
     setRated(val);
   }
 
+  const changeRating = () => {
+    setSortRating(!sortRating);
+  }
+
   const clearAll = () => {
     setValue("");
     setAnimeList([]);
@@ -56,6 +61,7 @@ function App() {
     setGenre({});
     setStatus({});
     setRated({});
+    setSortRating(false);
   }
 
   const fetchAnime = async (query) => {
@@ -68,10 +74,16 @@ function App() {
       .then(res => res.json())
       .catch(e => setError(e));
     
-    try {
+    if (results) {
+      if (sortRating) {
+        results.results.sort((a, b) => {
+          return b.score - a.score;
+        });
+      }
+
       setAnimeList(results.results);
-    } catch (e) {
-      setError(e);
+    } else {
+      setError(true);
     }
     
     setSearching(false);
@@ -81,9 +93,9 @@ function App() {
     <div class="App">
       <h1>AnimeSearch</h1>
       <Searcharea placeholder="Search" value={value} onChange={onChange}
-        onClick={searchAnime} disabled={searching}/>
-      <Filter genre={genre} status={status} rated={rated}
-        changeGenre={changeGenre} changeStatus={changeStatus} changeRated={changeRated}/>
+        onClick={searchAnime}/>
+      <Filter genre={genre} status={status} rated={rated} sortRating={sortRating}
+        changeGenre={changeGenre} changeStatus={changeStatus} changeRated={changeRated} changeRating={changeRating}/>
       <a onClick={clearAll}><p>Clear All</p></a>
       <Results results={animeList} searching={searching} searched={searched} error={error}/>
     </div>

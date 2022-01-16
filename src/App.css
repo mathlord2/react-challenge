@@ -5,6 +5,7 @@
 
 .inline {
   display: inline-flex;
+  align-items: baseline;
 }
 
 .marginTop {

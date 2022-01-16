@@ -2,6 +2,7 @@ import React from "react";
 import {GENRES, STATUSES, RATINGS} from "./FilterVars";
 
 import Dropdown from "./Dropdown";
+import { Checkbox } from "antd";
 
 const Filter = props => {
     return (
@@ -14,6 +15,9 @@ const Filter = props => {
                     default="Status" setValue={props.changeStatus}/>
                 <Dropdown items={RATINGS} value={props.rated.name}
                     default="Rated" setValue={props.changeRated}/>
+                <div style={{marginLeft: "10px"}}>
+                    <Checkbox onChange={props.changeRating} checked={props.sortRating}>Sort by rating</Checkbox>
+                </div>
             </div>
         </>
     );

@@ -19,7 +19,7 @@ const Results = props => {
                     <div className="info">
                         <p>Number of episodes: {result.episodes}</p>
                         <p>Start date: {moment(result.start_date).year()}</p>
-                        <p>End date: {moment(result.end_date).year()}</p>
+                        {result.end_date && <p>End date: {moment(result.end_date).year()}</p>}
                         <p>Rating: {result.score}</p>
                     </div>
                 </Col>

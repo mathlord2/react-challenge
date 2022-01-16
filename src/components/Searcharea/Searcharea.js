@@ -28,9 +28,8 @@ const Searcharea = props => {
                 boxShadow: SHADOW.primary,
                 color: "white",
                 padding: "10px 20px",
-                border: "none",
-                opacity: props.disabled ? 0.5 : 1
-            }} disabled={props.disabled}>
+                border: "none"
+            }}>
                 <FaArrowRight/>
             </button>
         </div>
