@@ -1,0 +1,19 @@
+.animeCard {
+    padding: 30px;
+    margin: 0px 3vh;
+    box-shadow: 10px 10px 100px grey;
+    border-radius: 20px;
+    max-width: 275px !important;
+}
+
+.animeCard h4 {
+    margin-top: 20px;
+}
+
+.animeCard img {
+    border-radius: 20px;
+}
+
+.info {
+    text-align: left;
+}
