@@ -23,6 +23,6 @@ When aiming for a responsive/mobile-friendly app, I put high emphasis on the gri
 
 To make my app accessible to the disabled, more specifically those with varying degrees of blindness, I would introduce a speech search feature that would allow them to search for animes by speaking their search terms. I would also create a text-to-speech feature that would translate the search results to speech.
 
-### Future Changes
+## Future Changes
 
 If I were to make future changes to this app, firstly I would implement the accessibility features I mentioned in the previous section. An API that I can use for that is the Web Speech API; it would interpret the user's speech and use it in a query to search for anime, and it would also convert the search results into speech for the user to hear. Another change to my project would be to include more filters (e.g. sorting by date, filtering by country of origin or season, etc.) and display all of the information given by the API in a nicer format (e.g. the API also gives a synopsis with each anime, but the text is very long so I didn't bother displaying it in the card). The filters could be done with more JavaScript code or by checking out the documentation of Jikan to see if it supports the filters I need, and to display the API information, I would try to develop a separate component or page and use the React Router library.
